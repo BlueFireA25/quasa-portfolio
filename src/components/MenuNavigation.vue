@@ -15,10 +15,12 @@
         navToggleIcon == 'bi-list'
           ? ((navToggleIcon = 'bi-x'),
             (navToggleActiveClass = 'mobile-nav-active'),
-            openNav(true))
+            openNav(true),
+            scrollHidden())
           : ((navToggleIcon = 'bi-list'),
             (navToggleActiveClass = ''),
-            openNav(false))
+            openNav(false),
+            scrollHidden())
       "
     />
   </q-page-sticky>
@@ -38,45 +40,105 @@
       active-color="white"
       align="center"
     >
-      <q-tab class="nav-item" name="mails" @click="scrollToElement('home')">
+      <q-tab
+        class="nav-item"
+        name="mails"
+        @click="
+          scrollToElement('home'),
+            openNav(false),
+            (navToggleIcon = 'bi-list'),
+            (navToggleActiveClass = '');
+          scrollHidden();
+        "
+      >
         <div class="row items-center self-start" style="margin-left: 10px">
           <q-icon name="bi-house-door" size="23px" />
           <div class="q-ml-lg">Home</div>
         </div>
       </q-tab>
-      <q-tab class="nav-item" name="about" @click="scrollToElement('about')">
+
+      <q-tab
+        class="nav-item"
+        name="about"
+        @click="
+          scrollToElement('about'),
+            openNav(false),
+            (navToggleIcon = 'bi-list'),
+            (navToggleActiveClass = '');
+          scrollHidden();
+        "
+      >
         <div class="row items-center self-start" style="margin-left: 10px">
           <q-icon name="bi-person" size="23px" />
           <div class="q-ml-lg">About</div>
         </div>
       </q-tab>
-      <q-tab class="nav-item" name="skills" @click="scrollToElement('movie')">
+
+      <q-tab
+        class="nav-item"
+        name="skills"
+        @click="
+          scrollToElement('skills'),
+            openNav(false),
+            (navToggleIcon = 'bi-list'),
+            (navToggleActiveClass = '');
+          scrollHidden();
+        "
+      >
         <div class="row items-center self-start" style="margin-left: 10px">
           <q-icon name="bi-file-earmark-code" size="23px" />
           <div class="q-ml-lg">Skills</div>
         </div>
       </q-tab>
+
       <q-tab
         class="nav-item"
         name="experience"
-        @click="scrollToElement('movie')"
+        @click="
+          scrollToElement('experience'),
+            openNav(false),
+            (navToggleIcon = 'bi-list'),
+            (navToggleActiveClass = '');
+          scrollHidden();
+        "
       >
         <div class="row items-center self-start" style="margin-left: 10px">
           <q-icon name="bi-journal-check" size="23px" />
           <div class="q-ml-lg">Experience</div>
         </div>
       </q-tab>
+
       <q-tab
         class="nav-item"
         name="portfolio"
-        @click="scrollToElement('movie')"
+        @click="
+          scrollToElement('portfolio'),
+            openNav(false),
+            (navToggleIcon = 'bi-list'),
+            (navToggleActiveClass = ''),
+            openNav(false),
+            (navToggleIcon = 'bi-list'),
+            (navToggleActiveClass = '');
+          scrollHidden();
+        "
       >
         <div class="row items-center self-start" style="margin-left: 10px">
           <q-icon name="bi-archive" size="23px" />
           <div class="q-ml-lg">Portfolio</div>
         </div>
       </q-tab>
-      <q-tab class="nav-item" name="contact" @click="scrollToElement('movie')">
+
+      <q-tab
+        class="nav-item"
+        name="contact"
+        @click="
+          scrollToElement('contact'),
+            openNav(false),
+            (navToggleIcon = 'bi-list'),
+            (navToggleActiveClass = '');
+          scrollHidden();
+        "
+      >
         <div class="row items-center self-start" style="margin-left: 10px">
           <q-icon name="bi-phone" size="23px" />
           <div class="q-ml-lg">Contact</div>
@@ -110,6 +172,14 @@ function scrollToElement(id: string) {
     const offset = el.offsetTop + 3;
     const duration = 900;
     setVerticalScrollPosition(target, offset, duration);
+  }
+}
+
+function scrollHidden() {
+  if (navToggleActiveClass.value == 'mobile-nav-active') {
+    document.body.classList.add('mobile-body');
+  } else {
+    document.body.classList.remove('mobile-body');
   }
 }
 </script>
