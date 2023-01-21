@@ -2,8 +2,8 @@
   <q-layout view="lHh Lpr lFf">
     <q-page-sticky
       class="z-top"
-      :offset="[20, 20]"
-      position="top-left"
+      :offset="Screen.sm ? [30, 20] : Screen.xs ? [10, 20] : [16, 20]"
+      position="bottom-left"
       style="transform: translateY(0)"
     >
       <div class="row justify-center items-center q-gutter-md">
@@ -46,7 +46,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { setCssVar, useQuasar } from 'quasar';
+import { setCssVar, Screen, useQuasar } from 'quasar';
 import languages from 'quasar/lang/index.json';
 import MenuNavigation from 'components/MenuNavigation.vue';
 
