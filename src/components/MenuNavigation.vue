@@ -53,7 +53,7 @@
       >
         <div class="row items-center self-start" style="margin-left: 10px">
           <q-icon name="bi-house-door" size="23px" />
-          <div class="q-ml-lg">Home</div>
+          <div class="q-ml-lg">{{ $t('menu.home') }}</div>
         </div>
       </q-tab>
 
@@ -202,9 +202,14 @@ function scrollHidden() {
 @media (max-width: $breakpoint-sm-max) {
   #header {
     width: 300px !important;
-    background: #fff !important;
-    border-right: 1px solid #e6e9ec;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, var(--q-dark) 0px 0px 0px 3px;
     left: -300px;
+  }
+}
+
+@media (max-width: $breakpoint-xs-max) {
+  #header {
+    width: 250px !important;
   }
 }
 
@@ -220,18 +225,19 @@ function scrollHidden() {
 }
 
 .nav-item {
-  background-color: $accent;
+  background-color: var(--q-accent);
   margin-bottom: 8px;
   width: 56px;
   height: 56px;
   border-radius: 50px !important;
-  transition: 0.4s;
+  transition: 0.5s;
   text-transform: capitalize;
 }
 
-#header,
 .nav-item:hover {
   width: 160px;
+  background-color: var(--q-primary);
+  color: white;
 }
 
 .nav-item :nth-child(2) :nth-child(1) {
@@ -289,7 +295,7 @@ function scrollHidden() {
 
   .mobile-nav-active {
     color: #fff !important;
-    background-color: $primary;
+    background-color: var(--q-primary);
   }
 }
 </style>
