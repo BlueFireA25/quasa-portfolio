@@ -81,11 +81,13 @@ function changeTheme(status: boolean) {
     setCssVar('primary', '#0563bb');
     setCssVar('dark', '#242a2f');
     document.body.style.setProperty('background-color', '#fff');
+    document.body.style.setProperty('--q-white', '#fff');
     themeStatus.value = false;
   } else {
     setCssVar('primary', '#23b924');
     setCssVar('dark', '#fff');
     document.body.style.setProperty('background-color', '#1f2326');
+    document.body.style.setProperty('--q-white', '#1f2326');
     themeStatus.value = true;
   }
 }

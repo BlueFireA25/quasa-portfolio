@@ -202,6 +202,7 @@ function scrollHidden() {
 @media (max-width: $breakpoint-sm-max) {
   #header {
     width: 300px !important;
+    background-color: var(--q-white) !important;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, var(--q-dark) 0px 0px 0px 3px;
     left: -300px;
   }

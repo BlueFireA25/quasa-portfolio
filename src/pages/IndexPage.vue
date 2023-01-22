@@ -1,6 +1,6 @@
 <template>
   <q-page style="padding-left: 170px">
-    <!-- <div id="home">
+    <div id="home">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam facilis
       suscipit eos totam odit corrupti dolorem autem unde doloremque pariatur
       rerum, exercitationem repellat consectetur laudantium velit saepe quae ad
@@ -171,7 +171,7 @@
       adipisicing elit. Aperiam facilis suscipit eos totam odit corrupti dolorem
       autem unde doloremque pariatur rerum, exercitationem repellat consectetur
       laudantium velit saepe quae ad quisquam!
-    </div> -->
+    </div>
   </q-page>
 </template>
 
