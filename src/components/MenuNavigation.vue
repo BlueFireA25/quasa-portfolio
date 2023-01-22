@@ -28,7 +28,7 @@
     elevated
     id="header"
     :class="`bg-transparent overflow-hidden fixed ${
-      Screen.md ? headerMobileNavActive : ''
+      Screen.md || Screen.lg || Screen.xl ? headerMobileNavActive : ''
     }`"
   >
     <q-tabs
