@@ -49,6 +49,10 @@ import { useI18n } from 'vue-i18n';
 import { setCssVar, Screen, useQuasar } from 'quasar';
 import languages from 'quasar/lang/index.json';
 import MenuNavigation from 'components/MenuNavigation.vue';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+
+AOS.init();
 
 const appLanguages = languages.filter((lang) =>
   ['es', 'en-US'].includes(lang.isoName)
@@ -82,12 +86,14 @@ function changeTheme(status: boolean) {
     setCssVar('dark', '#242a2f');
     document.body.style.setProperty('background-color', '#fff');
     document.body.style.setProperty('--q-white', '#fff');
+    document.body.style.setProperty('--q-white-rgb', '255, 255, 255');
     themeStatus.value = false;
   } else {
     setCssVar('primary', '#23b924');
     setCssVar('dark', '#fff');
     document.body.style.setProperty('background-color', '#1f2326');
     document.body.style.setProperty('--q-white', '#1f2326');
+    document.body.style.setProperty('--q-white-rgb', '0, 0, 0');
     themeStatus.value = true;
   }
 }

@@ -3,10 +3,19 @@
 --------------------------------------------------------------*/
 :root {
   --q-white: #fff;
+  --q-white-rgb: 255, 255, 255;
 }
 
 body {
   overflow-x: hidden;
+}
+
+.text-h2 {
+  font-size: 64px;
+}
+
+.text-h5 {
+  font-size: 26px;
 }
 
 .mobile-body {
