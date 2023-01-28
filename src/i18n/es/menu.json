@@ -1,3 +1,9 @@
 {
-  "home": "inicio"
+  "home": "inicio",
+  "about": "sobre mí",
+  "skill": "habilidades",
+  "experience": "experiencia",
+  "portfolio": "portafolio",
+  "contact": "contacto",
+  "language": "lenguaje"
 }

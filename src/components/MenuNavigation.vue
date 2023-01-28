@@ -70,7 +70,7 @@
       >
         <div class="row items-center self-start" style="margin-left: 10px">
           <q-icon name="bi-person" size="23px" />
-          <div class="q-ml-lg">About</div>
+          <div class="q-ml-lg">{{ $t('menu.about') }}</div>
         </div>
       </q-tab>
 
@@ -87,7 +87,7 @@
       >
         <div class="row items-center self-start" style="margin-left: 10px">
           <q-icon name="bi-file-earmark-code" size="23px" />
-          <div class="q-ml-lg">Skills</div>
+          <div class="q-ml-lg">{{ $t('menu.skill') }}</div>
         </div>
       </q-tab>
 
@@ -104,7 +104,7 @@
       >
         <div class="row items-center self-start" style="margin-left: 10px">
           <q-icon name="bi-journal-check" size="23px" />
-          <div class="q-ml-lg">Experience</div>
+          <div class="q-ml-lg">{{ $t('menu.experience') }}</div>
         </div>
       </q-tab>
 
@@ -124,7 +124,7 @@
       >
         <div class="row items-center self-start" style="margin-left: 10px">
           <q-icon name="bi-archive" size="23px" />
-          <div class="q-ml-lg">Portfolio</div>
+          <div class="q-ml-lg">{{ $t('menu.portfolio') }}</div>
         </div>
       </q-tab>
 
@@ -141,7 +141,7 @@
       >
         <div class="row items-center self-start" style="margin-left: 10px">
           <q-icon name="bi-phone" size="23px" />
-          <div class="q-ml-lg">Contact</div>
+          <div class="q-ml-lg">{{ $t('menu.contact') }}</div>
         </div>
       </q-tab>
     </q-tabs>
@@ -231,7 +231,7 @@ function scrollHidden() {
   width: 56px;
   height: 56px;
   border-radius: 50px !important;
-  transition: 0.5s;
+  transition: all 0.4s;
   text-transform: capitalize;
 }
 
