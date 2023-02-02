@@ -21,6 +21,7 @@
           map-options
           options-dense
           bg-color="white"
+          style="width: 200px"
         >
           <template v-slot:prepend>
             <q-icon name="bi-translate" color="primary" />

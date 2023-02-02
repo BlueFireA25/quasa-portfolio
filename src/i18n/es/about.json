@@ -1,0 +1,16 @@
+{
+  "title": "Acerca de Mí",
+  "description": "Desarrollador Frontend e Ingeniero de Sistemas, con conocimientos en tecnologías web, lenguajes de programación y diseño. Soy una persona responsable, con facilidad para trabajar individualmente y en equipo, siempre enfocado en desarrollar software de calidad.",
+  "personal-details": "Información Personal",
+  "name": "Nombre:",
+  "phone": "Teléfono:",
+  "languages": "Lenguajes:",
+  "languages-description": "Español - Inglés (Intermedio)",
+  "my-interests": "Mis intereses",
+  "travel": "Viajar",
+  "read": "Leer",
+  "music": "Música",
+  "games": "Juegos",
+  "cinema": "Cine",
+  "download": "Descargar CV"
+}

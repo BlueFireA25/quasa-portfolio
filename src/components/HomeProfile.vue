@@ -16,12 +16,9 @@
             Sebastián Ibagué Castro
           </h1>
           <p class="text-h5">
-            I'm
-            <span
-              class="text-primary"
-              id="typed-strings"
-              data-typed-items="Designer, Developer, Freelancer, Photographer"
-            ></span>
+            {{ $t('home.hello') }}
+            <span class="text-primary" id="typed-strings"></span>
+            <span class="text-primary" id="typed-strings"></span>
           </p>
         </div>
 
@@ -73,8 +70,11 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { Screen } from 'quasar';
 import Typed from 'typed.js';
+
+const i18n = useI18n();
 
 onMounted(() => {
   typedEffect();
@@ -84,7 +84,7 @@ function typedEffect() {
   let typedContent = document.getElementById('typed-strings');
   if (typedContent) {
     let options = {
-      strings: ['Frontend Developer', 'Systems Engineer'],
+      strings: [i18n.t('home.title1'), i18n.t('home.title2')],
       typeSpeed: 70,
       backSpeed: 70,
       loop: true,
@@ -127,7 +127,6 @@ function typedEffect() {
 
   .home-content p {
     margin-top: 10px;
-    font-size: 20px;
     line-height: 24px;
   }
 
