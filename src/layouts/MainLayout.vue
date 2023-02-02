@@ -42,19 +42,10 @@
       <router-view />
     </q-page-container>
   </q-layout>
-  <q-inner-loading
-    :showing="visible"
-    size="70px"
-    color="primary"
-    label="Please wait..."
-    label-class="text-primary"
-    label-style="font-size: 20px"
-  >
-  </q-inner-loading>
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onMounted, onBeforeMount } from 'vue';
+import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { setCssVar, Screen, useQuasar } from 'quasar';
 import languages from 'quasar/lang/index.json';
@@ -62,7 +53,6 @@ import MenuNavigation from 'components/MenuNavigation.vue';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 
-const visible = ref(false);
 AOS.init();
 
 const appLanguages = languages.filter((lang) =>
@@ -108,16 +98,6 @@ function changeTheme(status: boolean) {
     themeStatus.value = true;
   }
 }
-
-onBeforeMount(() => {
-  visible.value = true;
-});
-
-onMounted(() => {
-  setTimeout(() => {
-    visible.value = false;
-  }, 1000);
-});
 </script>
 
 <style scoped>

@@ -42,7 +42,7 @@
     >
       <q-tab
         class="nav-item"
-        name="mails"
+        name="home"
         @click="
           scrollToElement('home'),
             openNav(false),
@@ -149,14 +149,40 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { scroll, Screen } from 'quasar';
 
-const tab = ref('mails');
+const tab = ref('home');
 const { getScrollTarget, setVerticalScrollPosition } = scroll;
 const headerMobileNavActive = ref('header-mobile-nav-active');
 const navToggleIcon = ref('bi-list');
 const navToggleActiveClass = ref('');
+const home = ref<DOMRect>();
+const about = ref<DOMRect>();
+
+window.onscroll = function () {
+  let y = window.scrollY;
+
+  if (home.value && about.value) {
+    if (y === home.value.top && y < about.value.top) {
+      tab.value = 'home';
+    }
+    if (y >= about.value.top) {
+      tab.value = 'about';
+    }
+  }
+  return window.scrollY;
+};
+
+onMounted(() => {
+  let elementHome = document.getElementById('home') as HTMLElement;
+  let rectHome = elementHome.getBoundingClientRect();
+  home.value = rectHome;
+
+  let elementAbout = document.getElementById('about') as HTMLElement;
+  let rectAbout = elementAbout.getBoundingClientRect();
+  about.value = rectAbout;
+});
 
 function openNav(active: boolean) {
   let header = document.getElementById('header');

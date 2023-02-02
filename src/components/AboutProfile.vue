@@ -1,7 +1,16 @@
 <template>
-  <div class="text-center q-px-lg">
-    <h3 class="text-h3 text-weight-medium text-dark">About Me</h3>
-    <p class="text-body1 text-dark q-mb-lg">
+  <div
+    class="q-px-md container-section"
+    data-aos="fade-down"
+    data-aos-delay="100"
+    data-aos-duration="1000"
+  >
+    <h3 class="text-center text-h3 text-weight-medium text-dark">About Me</h3>
+    <p
+      :class="`${
+        Screen.xs ? 'text-center' : 'text-left'
+      } text-body1 text-dark q-mb-lg`"
+    >
       Frontend Developer and Systems Engineer, with knowledge of web
       technologies, programming languages and design. I am a responsible person
       with ease of working individually and as a team, always focused on
@@ -10,10 +19,16 @@
     <div
       :class="`${
         Screen.xs ? 'column items-center' : 'row items-start'
-      } justify-center text-body1 q-col-gutter-y-md`"
+      } justify-between text-body1 q-col-gutter-y-md`"
     >
       <div class="col-auto col-xs-12 col-sm-6 text-dark">
-        <div class="text-weight-medium text-h6 q-mb-md">Personal Details</div>
+        <div
+          :class="`${
+            Screen.xs ? 'text-center' : 'text-start'
+          } text-weight-medium text-h6 q-mb-md`"
+        >
+          Personal Details
+        </div>
         <ul class="q-pa-none q-ma-none text-weight-medium q-gutter-y-md">
           <li>
             Name:
@@ -21,7 +36,9 @@
           </li>
           <li>
             Phone:
-            <span class="text-weight-regular">+57 312 233 7092</span>
+            <span class="text-weight-regular"
+              ><span class="text-weight-medium">(+57)</span> 312 233 7092</span
+            >
           </li>
           <li>
             Email:
@@ -36,11 +53,13 @@
         </ul>
       </div>
       <div class="col-auto col-xs-12 col-sm-6">
-        <div class="text-weight-medium text-h6 text-dark">My interests</div>
+        <div class="text-center text-weight-medium text-h6 text-dark">
+          My interests
+        </div>
         <div
           class="column justify-center items-center text-black q-gutter-y-md"
         >
-          <div class="row justify-center q-gutter-x-md q-gutter-y-md">
+          <div class="row justify-center q-gutter-md">
             <div
               class="column justify-center items-center interest-card bg-primary text-white"
             >
@@ -81,6 +100,17 @@
         </div>
       </div>
     </div>
+    <div class="q-mt-xl text-center">
+      <q-btn
+        class="btn-cv"
+        size="md"
+        color="primary"
+        icon-right="bi-file-earmark-arrow-down"
+        label="Download CV"
+        no-caps
+        padding="24px"
+      />
+    </div>
   </div>
 </template>
 
@@ -94,10 +124,21 @@ import { Screen } from 'quasar';
   height: 100px;
   border-radius: 25px;
   box-shadow: inset -8px 0px 18px 12px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s;
+  transition: 0.2s all;
 }
 
 .interest-card:hover {
   transform: scale(1.07);
+}
+
+.btn-cv {
+  border-radius: 16px;
+  font-size: 18px !important;
+  transition: 0.2s all;
+  box-shadow: inset -8px 0px 18px 12px rgba(0, 0, 0, 0.1);
+}
+
+.btn-cv:active {
+  transform: scale(0.8);
 }
 </style>
