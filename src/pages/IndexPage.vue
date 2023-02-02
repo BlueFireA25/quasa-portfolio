@@ -8,5 +8,5 @@
 
 <script setup lang="ts">
 import HomeProfile from 'components/HomeProfile.vue';
-import AboutProfile from 'src/components/AboutProfile.vue';
+import AboutProfile from 'components/AboutProfile.vue';
 </script>
