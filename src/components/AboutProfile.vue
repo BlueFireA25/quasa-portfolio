@@ -29,10 +29,12 @@
     </p>
     <div
       :class="`${
-        Screen.xs ? 'column items-center' : 'row items-start'
+        Screen.xs ? 'row items-center' : 'row items-start'
       } justify-between text-body1 q-col-gutter-y-md`"
     >
-      <div class="col-auto col-xs-12 col-sm-6 text-dark">
+      <div
+        class="col-auto col-xs-12 col-sm-6 column justify-center items-center text-dark"
+      >
         <div
           :class="`${
             Screen.xs ? 'text-center' : 'text-start'
@@ -65,7 +67,7 @@
           </li>
         </ul>
       </div>
-      <div class="col-auto col-xs-12 col-sm-6">
+      <div class="col-auto col-xs-12 col-sm-6 column">
         <div class="text-center text-weight-medium text-h6 text-dark">
           {{ $t('about.my-interests') }}
         </div>
@@ -76,38 +78,38 @@
             <div
               class="column justify-center items-center interest-card bg-primary text-white"
             >
-              <q-icon name="bi-airplane" size="30px" class="q-mb-sm" />
-              <div class="text-body1">{{ $t('about.travel') }}</div>
+              <q-icon name="bi-airplane" size="25px" class="q-mb-sm" />
+              <div class="text-body2">{{ $t('about.travel') }}</div>
             </div>
             <div
               class="column justify-center items-center interest-card bg-primary text-white"
             >
               <q-icon
                 name="bi-journal-bookmark-fill"
-                size="30px"
+                size="25px"
                 class="q-mb-sm"
               />
-              <div class="text-body1">{{ $t('about.read') }}</div>
+              <div class="text-body2">{{ $t('about.read') }}</div>
             </div>
             <div
               class="column justify-center items-center interest-card bg-primary text-white"
             >
-              <q-icon name="bi-music-player" size="30px" class="q-mb-sm" />
-              <div class="text-body1">{{ $t('about.music') }}</div>
+              <q-icon name="bi-music-player" size="25px" class="q-mb-sm" />
+              <div class="text-body2">{{ $t('about.music') }}</div>
             </div>
           </div>
           <div class="row q-gutter-x-md q-gutter-y-md">
             <div
               class="column justify-center items-center interest-card bg-primary text-white"
             >
-              <q-icon name="bi-controller" size="30px" class="q-mb-sm" />
-              <div class="text-body1">{{ $t('about.games') }}</div>
+              <q-icon name="bi-controller" size="25px" class="q-mb-sm" />
+              <div class="text-body2">{{ $t('about.games') }}</div>
             </div>
             <div
               class="column justify-center items-center interest-card bg-primary text-white"
             >
-              <q-icon name="bi-camera-reels" size="30px" class="q-mb-sm" />
-              <div class="text-body1">{{ $t('about.cinema') }}</div>
+              <q-icon name="bi-camera-reels" size="25px" class="q-mb-sm" />
+              <div class="text-body2">{{ $t('about.cinema') }}</div>
             </div>
           </div>
         </div>
@@ -133,8 +135,8 @@ import { Screen } from 'quasar';
 
 <style scoped lang="scss">
 .interest-card {
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   border-radius: 25px;
   box-shadow: inset -8px 0px 18px 12px rgba(0, 0, 0, 0.1);
   transition: 0.2s all;
@@ -151,7 +153,8 @@ import { Screen } from 'quasar';
   box-shadow: inset -8px 0px 18px 12px rgba(0, 0, 0, 0.1);
 }
 
-.btn-cv:active {
-  transform: scale(0.8);
+.btn-cv:hover {
+  transform: translateY(-3.2px);
+  transition: 0.3s;
 }
 </style>

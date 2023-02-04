@@ -12,14 +12,52 @@
         } items-center`"
       >
         <div class="q-pa-none q-ma-none">
-          <h1 class="text-h2 text-weight-bold q-mt-none">
+          <h1
+            :class="{
+              'text-h2': $q.screen.gt.md,
+              'text-h3': $q.screen.lt.lg,
+              'text-h4': $q.screen.lt.sm,
+              'text-weight-bold q-mt-none': true,
+            }"
+          >
             Sebastián Ibagué Castro
           </h1>
-          <p class="text-h5">
+          <p
+            :class="{
+              'text-h4': $q.screen.gt.md,
+              'text-h5': $q.screen.xs || ($q.screen.gt.xs && $q.screen.lt.lg),
+            }"
+          >
             {{ $t('home.hello') }}
             <span class="text-primary" id="typed-strings"></span>
             <span class="text-primary" id="typed-strings"></span>
           </p>
+          <div class="q-pt-md">
+            <q-btn
+              class="social-icon"
+              flat
+              round
+              color="primary"
+              icon="bi-linkedin"
+              href="https://www.linkedin.com/in/sebastianibaguecastro/"
+              target="_blank"
+              :size="$q.screen.gt.md ? '27px' : '23.33px'"
+            >
+              <q-tooltip class="bg-primary text-caption">Linkedin</q-tooltip>
+            </q-btn>
+            <q-btn
+              class="social-icon"
+              flat
+              round
+              color="primary"
+              icon="bi-github"
+              href="https://github.com/BlueFireA25"
+              target="_blank"
+              :size="$q.screen.gt.md ? '27px' : '23.33px'"
+            >
+              <q-tooltip class="bg-primary text-caption">GitHub</q-tooltip>
+            </q-btn>
+          </div>
         </div>
 
         <svg
@@ -69,30 +107,7 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { Screen } from 'quasar';
-import Typed from 'typed.js';
-
-const i18n = useI18n();
-
-onMounted(() => {
-  typedEffect();
-});
-
-function typedEffect() {
-  let typedContent = document.getElementById('typed-strings');
-  if (typedContent) {
-    let options = {
-      strings: [i18n.t('home.title1'), i18n.t('home.title2')],
-      typeSpeed: 70,
-      backSpeed: 70,
-      loop: true,
-    };
-
-    return new Typed('#typed-strings', options);
-  }
-}
 </script>
 
 <style scoped lang="scss">
@@ -114,6 +129,15 @@ function typedEffect() {
   top: 0;
   left: 0;
   right: 0;
+}
+
+.social-icon {
+  transition: 0.3s;
+}
+
+.social-icon:hover {
+  transform: translateY(-3.2px);
+  transition: 0.3s;
 }
 
 @media (max-width: 992px) {

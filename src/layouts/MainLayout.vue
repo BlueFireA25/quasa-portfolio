@@ -46,13 +46,14 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { setCssVar, Screen, useQuasar } from 'quasar';
 import languages from 'quasar/lang/index.json';
 import MenuNavigation from 'components/MenuNavigation.vue';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Typed from 'typed.js';
 
 AOS.init();
 
@@ -65,9 +66,18 @@ const langOptions = appLanguages.map((lang) => ({
   value: lang.isoName,
 }));
 
+const i18n = useI18n();
 const $q = useQuasar();
 const lang = ref($q.lang.isoName);
 const { locale } = useI18n({ useScope: 'global' });
+let a: Typed;
+
+onMounted(() => {
+  let options = typedEffect();
+  if (options) {
+    a = new Typed('#typed-strings', options);
+  }
+});
 
 watch(lang, (val) => {
   // dynamic import, so loading on demand only
@@ -77,6 +87,14 @@ watch(lang, (val) => {
   ).then((lang) => {
     $q.lang.set(lang.default);
     locale.value = lang.default.isoName;
+    let options = typedEffect();
+
+    if (options) {
+      if (lang.default.isoName === 'en-US' || lang.default.isoName === 'es') {
+        a?.destroy();
+      }
+      a = new Typed('#typed-strings', options);
+    }
   });
 });
 
@@ -97,6 +115,20 @@ function changeTheme(status: boolean) {
     document.body.style.setProperty('--q-white', '#1f2326');
     document.body.style.setProperty('--q-white-rgb', '0, 0, 0');
     themeStatus.value = true;
+  }
+}
+
+function typedEffect() {
+  let typedContent = document.getElementById('typed-strings');
+  if (typedContent) {
+    let options = {
+      strings: [i18n.t('home.title1'), i18n.t('home.title2')],
+      typeSpeed: 70,
+      backSpeed: 70,
+      loop: true,
+    };
+
+    return options;
   }
 }
 </script>
