@@ -159,16 +159,34 @@ const navToggleIcon = ref('bi-list');
 const navToggleActiveClass = ref('');
 const home = ref<DOMRect>();
 const about = ref<DOMRect>();
+const skills = ref<DOMRect>();
+const experience = ref<DOMRect>();
+const portfolio = ref<DOMRect>();
 
 window.onscroll = function () {
   let y = window.scrollY;
 
-  if (home.value && about.value) {
+  if (
+    home.value &&
+    about.value &&
+    skills.value &&
+    experience.value &&
+    portfolio.value
+  ) {
     if (y === home.value.top && y < about.value.top) {
       tab.value = 'home';
     }
-    if (y >= about.value.top) {
+    if (y >= about.value.top && y < skills.value.top) {
       tab.value = 'about';
+    }
+    if (y >= skills.value.top && y < experience.value.top) {
+      tab.value = 'skills';
+    }
+    if (y >= experience.value.top && y < portfolio.value.top) {
+      tab.value = 'experience';
+    }
+    if (y >= portfolio.value.top) {
+      tab.value = 'portfolio';
     }
   }
   return window.scrollY;
@@ -182,6 +200,18 @@ onMounted(() => {
   let elementAbout = document.getElementById('about') as HTMLElement;
   let rectAbout = elementAbout.getBoundingClientRect();
   about.value = rectAbout;
+
+  let elementSkills = document.getElementById('skills') as HTMLElement;
+  let rectSkills = elementSkills.getBoundingClientRect();
+  skills.value = rectSkills;
+
+  let elementExperience = document.getElementById('experience') as HTMLElement;
+  let rectExperience = elementExperience.getBoundingClientRect();
+  experience.value = rectExperience;
+
+  let elementPortfolio = document.getElementById('portfolio') as HTMLElement;
+  let rectPortfolio = elementPortfolio.getBoundingClientRect();
+  portfolio.value = rectPortfolio;
 });
 
 function openNav(active: boolean) {

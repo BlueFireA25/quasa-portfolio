@@ -107,6 +107,7 @@ function changeTheme(status: boolean) {
     document.body.style.setProperty('background-color', '#fff');
     document.body.style.setProperty('--q-white', '#fff');
     document.body.style.setProperty('--q-white-rgb', '255, 255, 255');
+    document.body.style.setProperty('--q-shadow', '5, 99, 187');
     themeStatus.value = false;
   } else {
     setCssVar('primary', '#23b924');
@@ -114,6 +115,7 @@ function changeTheme(status: boolean) {
     document.body.style.setProperty('background-color', '#1f2326');
     document.body.style.setProperty('--q-white', '#1f2326');
     document.body.style.setProperty('--q-white-rgb', '0, 0, 0');
+    document.body.style.setProperty('--q-shadow', '35, 185, 36');
     themeStatus.value = true;
   }
 }
