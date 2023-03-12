@@ -33,6 +33,20 @@ body {
   overflow: hidden !important;
 }
 
+a {
+  color: var(--q-primary);
+  text-decoration: none;
+}
+
 ul {
   list-style: none;
+  list-style-type: disc;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
+
+.q-tab__label {
+  font-size: 20px;
 }
